@@ -2,23 +2,19 @@ package Main;
 
 import Parser.*;
 
+import java.util.ArrayList;
+
 public class Engine {
     private String inputPath;
     private String outputPath;
-    private String instructions;
+    private ArrayList<String[]> instructions;
     private String results;
-
-    public String getInputPath() {
-        return inputPath;
-    }
-
-    public String getOutputPath() {
-        return outputPath;
-    }
 
     public Engine(String inputPath, String outputPath) {
         this.inputPath = inputPath;
         this.outputPath = outputPath;
+        this.instructions = new ArrayList<>();
+        results = "";
     }
 
     void run(){
@@ -30,9 +26,10 @@ public class Engine {
         Executor executor = new Executor(instructions);
         executor.executeInstructions();
         results = executor.getExecutingResults();
+        //System.out.println(results);
         //Writing
         Writer writer = new Writer(outputPath);
-        writer.write();
+        writer.write(results);
     }
 
 }
