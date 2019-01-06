@@ -26,7 +26,7 @@ public class Engine {
         Executor executor = new Executor(instructions);
         executor.executeInstructions();
         results = executor.getExecutingResults();
-        //System.out.println(results);
+        System.out.println("\n***Results***\n"+results);
         //Writing
         Writer writer = new Writer(outputPath);
         writer.write(results);
